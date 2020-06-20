@@ -1,13 +1,15 @@
-<header>
-  <nav class="navbar fixed-top search-top">
-    <a class="navbar-brand" href="#!">Gitter</a>
-    <form #searchForm='ngForm' (ngSubmit)=submitSearch() class="form-inline form-group my-2 my-lg-0 search-form">
-      <input class="form-control mr-sm-2" type="text" placeholder="Search..." id="search" name="search"
-        #search='ngModel' [(ngModel)]="searchParam">
-      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-    </form>
-  </nav>
-</header>
-<div class="container-fluid">
-  <p>{{ user }}</p>
+<div class="header">
+  <header>
+    <nav class="navbar fixed-top search-top">
+      <a class="navbar-brand" href="#!">Gitter</a>
+      <form #searchForm='ngForm' (ngSubmit)=submitSearch() class="form-inline form-group my-2 my-lg-0 search-form">
+        <input class="form-control mr-sm-2" type="text" placeholder="Search..." id="search" name="search"
+          #search='ngModel' [(ngModel)]="searchParam">
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+      </form>
+    </nav>
+  </header>
+</div>
+<div class="container-fluid main-section">
+  <p>{{ searchParam }}</p>
 </div>

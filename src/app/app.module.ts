@@ -6,6 +6,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { GitterComponent } from './gitter/gitter.component';
+import { ProfileCollectorService } from './profile-collector.service';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,7 @@ import { GitterComponent } from './gitter/gitter.component';
     FormsModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [ProfileCollectorService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

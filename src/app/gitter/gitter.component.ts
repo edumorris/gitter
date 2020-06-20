@@ -1,11 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { ProfileCollectorService } from '../profile-collector.service';
 
 @Component({
   selector: 'app-gitter',
   templateUrl: './gitter.component.html',
   styleUrls: ['./gitter.component.css']
 })
+
 export class GitterComponent implements OnInit {
   searchParam: string;
   searchData = [];
@@ -16,10 +18,13 @@ export class GitterComponent implements OnInit {
   description: string;
 
 submitSearch() {
-  
+  this.profileCollector.getProfile(this.searchParam);
+  console.log(this.searchParam)
  }
 
-constructor(private http: HttpClient) {
+constructor(private profileCollector: ProfileCollectorService, private http: HttpClient) {
+  this.profileCollector.getProfile(this.searchParam);
+
   this.http.get(this.searcher).toPromise().then(data => {
     for (let key in data) {
       if (data.hasOwnProperty(key)) {
