@@ -3,10 +3,12 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { GitterComponent } from './gitter/gitter.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    GitterComponent
   ],
   imports: [
     BrowserModule,
