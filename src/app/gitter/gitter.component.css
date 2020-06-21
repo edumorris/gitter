@@ -3,3 +3,8 @@
     margin-top: 50px;
     padding: 20px;
 }
+
+.search-top {
+    background-color: white !important;
+    z-index: 10;
+}
