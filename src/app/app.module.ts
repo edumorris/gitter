@@ -7,11 +7,13 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { GitterComponent } from './gitter/gitter.component';
 import { ProfileCollectorService } from './profile-collector.service';
+import { ReposComponent } from './repos/repos.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    GitterComponent
+    GitterComponent,
+    ReposComponent
   ],
   imports: [
     BrowserModule,

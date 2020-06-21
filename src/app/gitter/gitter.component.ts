@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { ProfileCollectorService } from '../profile-collector.service';
+import { Users } from '../users';
 
 
 @Component({
@@ -15,6 +16,11 @@ export class GitterComponent implements OnInit {
   repoData: any;
   user: string;
 
+@Output() repoOut = new EventEmitter<any>();
+
+repoSender() {
+  this.repoOut.emit(this.repoData);
+}
 
   submitSearch() {
     this.profileCollector.getProfile(this.searchParam);
