@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { ProfileCollectorService } from '../profile-collector.service';
 
+
 @Component({
   selector: 'app-gitter',
   templateUrl: './gitter.component.html',
@@ -10,32 +11,28 @@ import { ProfileCollectorService } from '../profile-collector.service';
 
 export class GitterComponent implements OnInit {
   searchParam: string;
-  searchData = [];
-  searchUrl = "https://api.github.com/users/";
-  token = "a84c1f0a1f6f01f6fac34e35f8ea92eab81845a1";
-  searcher = this.searchUrl + this.searchParam + "?access_token=" + this.token;
+  infoData: any;
+  repoData: any;
   user: string;
-  description: string;
 
-submitSearch() {
-  this.profileCollector.getProfile(this.searchParam);
-  console.log(this.searchParam)
- }
 
-constructor(private profileCollector: ProfileCollectorService, private http: HttpClient) {
-  this.profileCollector.getProfile(this.searchParam);
+  submitSearch() {
+    this.profileCollector.getProfile(this.searchParam);
+    this.profileCollector.userInfo().toPromise().then(infoData => this.infoData = infoData);
+    this.profileCollector.repoInfo().toPromise().then(repoData => this.repoData = repoData);
+  }
 
-  this.http.get(this.searcher).toPromise().then(data => {
-    for (let key in data) {
-      if (data.hasOwnProperty(key)) {
-        this.searchData.push(data[key]);
-      }
-    }
-  });
 
- }
+  constructor(private profileCollector: ProfileCollectorService) {
+    this.profileCollector.getProfile(this.searchParam);
+    this.profileCollector.userInfo().toPromise().then(infoData => this.infoData = infoData);
+    this.profileCollector.repoInfo().toPromise().then(repoData => this.repoData = repoData);
+  }
 
-ngOnInit(): void {
-}
+  ngOnInit() {
+    this.profileCollector.getProfile("edumorris");
+    this.profileCollector.userInfo().toPromise().then(infoData => this.infoData = infoData);
+    this.profileCollector.repoInfo().toPromise().then(repoData => this.repoData = repoData);
+  }
 
 }
