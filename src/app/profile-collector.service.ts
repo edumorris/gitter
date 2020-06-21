@@ -12,7 +12,7 @@ export class ProfileCollectorService {
   private repoAdd = "/repos?access_token=";
   
   constructor(private http: HttpClient) {
-    this.searchParam = "edumorris"
+    this.searchParam = "edumorris";
    }
 
   getProfile(searchParam: string) {
