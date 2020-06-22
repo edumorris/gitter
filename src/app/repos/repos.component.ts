@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { GitterComponent } from '../gitter/gitter.component'
+import { GitterComponent } from '../gitter/gitter.component';
 
 @Component({
   selector: 'app-repos',
