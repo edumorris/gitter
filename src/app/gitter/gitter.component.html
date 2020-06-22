@@ -26,4 +26,21 @@
           Github</button></a>
     </div>
   </div>
+  <hr>
+  <div class="repo-section">
+    <div *ngFor="let repo of repoData; let i = index">
+      <div class="card">
+        <div class="card-body">
+          <h4 class="card-title">{{ i+1 }}. {{ repo.name | uppercase }}</h4>
+          <h6 class="card-subtitle mb-2 text-muted text-right">{{ repo.created_at | date}}</h6>
+          <hr>
+          <p class="card-text text-center repo-description" *ngIf="repo.description">
+            {{ repo.description }}
+          </p>
+          <hr>
+          <a href="{{ repo.html_url }}" class="card-link" target="_blank"><button class="btn btn-link btn-outline-info repo-btn">View Repository</button></a>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
