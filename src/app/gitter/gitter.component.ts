@@ -30,6 +30,7 @@ repoSender() {
 
 
   constructor(private profileCollector: ProfileCollectorService) {
+    this.searchParam = 'edumorris'
     this.profileCollector.getProfile(this.searchParam);
     this.profileCollector.userInfo().toPromise().then(infoData => this.infoData = infoData);
     this.profileCollector.repoInfo().toPromise().then(repoData => this.repoData = repoData);
